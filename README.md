@@ -16,13 +16,7 @@
 *[Questions](#questions)
 
 
-
- ## Description
- 
- Application to help people find plants &amp; plants stores next to them , based on their zip code. Also recommendation of plants according to the Plant Hardiness Zone. So they can be able to find and grow their new plant friend.
-
-
-# User Story 
+# UserStory 
 
 AS a user, I want to buy a  plant close by .
 
@@ -32,9 +26,15 @@ When I get the Plant Hardiness Zone, I want to create a favorite list of my plan
 
 
 
+ ## Description
  
+ Application to help people find plants &amp; plants stores next to them , based on their zip code. Also recommendation of plants according to the Plant Hardiness Zone. So they can be able to find and grow their new plant friend.
+
+
+
+
  
- ### Installation & Technologies
+ ### Installation&Technologies
 NPM INSTALL,
 NPM I.
 
