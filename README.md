@@ -1,17 +1,5 @@
 # PlantFriend
 
- ## Description
- Application to help people find plants &amp; plants stores next to them , based on their zip code. Also recommendation of plants according to the Plant Hardiness Zone. So they can be able to find and grow their new plant friend.
-
-
-# User Story 
-AS a user, I want to buy a  plant close by .
-
-When I find a plant , I would like to know if it is good to grow, based on my current climate and location.
-
-When I get the Plant Hardiness Zone, I want to create a favorite list of my plants. 
-
-
 
  ## Table Of Contents
  
@@ -26,9 +14,27 @@ When I get the Plant Hardiness Zone, I want to create a favorite list of my plan
 *[Installation & Technologies](#installation&technologies)
 
 *[Questions](#questions)
+
+
+# UserStory 
+
+AS a user, I want to buy a  plant close by .
+
+When I find a plant , I would like to know if it is good to grow, based on my current climate and location.
+
+When I get the Plant Hardiness Zone, I want to create a favorite list of my plants. 
+
+
+
+ ## Description
  
+ Application to help people find plants &amp; plants stores next to them , based on their zip code. Also recommendation of plants according to the Plant Hardiness Zone. So they can be able to find and grow their new plant friend.
+
+
+
+
  
- ### Installation & Technologies
+ ### Installation&Technologies
 NPM INSTALL,
 NPM I.
 
