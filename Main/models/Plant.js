@@ -5,7 +5,7 @@ class Plant extends Model {}
 
 Plant.init(
   {
-    id: {
+    plant_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -16,7 +16,7 @@ Plant.init(
       allowNull: false,
     },
     // Plant hardzone description
-    hardiness: {
+    hardiness_zone: {
       type: DataTypes.STRING,
     },
 
@@ -26,7 +26,7 @@ Plant.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'plant',
   }
 );
 
