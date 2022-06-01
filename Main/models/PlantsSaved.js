@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class PlantList extends Model {}
+class PlantsSaved extends Model {}
 
-PlantList.init(
+PlantsSaved.init(
   {
-    plantlist_id: {
+    plant_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -15,20 +15,18 @@ PlantList.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-    // date_created: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   defaultValue: DataTypes.NOW,
-    // },
-
-      user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
+  
+    hardiness_zone: {
+      type: DataTypes.STRING,
     },
+
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'plant',
   },
   {
     sequelize,
@@ -39,4 +37,4 @@ PlantList.init(
   }
 );
 
-module.exports = Project;
+module.exports = PlantsSaved;

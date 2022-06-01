@@ -15,7 +15,7 @@ Plant.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // Plant hardzone description
+
     hardiness_zone: {
       type: DataTypes.STRING,
     },
@@ -30,4 +30,4 @@ Plant.init(
   }
 );
 
-module.exports = Project;
+module.exports = Plant;
