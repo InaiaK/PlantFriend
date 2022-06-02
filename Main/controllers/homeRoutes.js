@@ -7,7 +7,7 @@ const withAuth = require('../utils/auth');
 
 const findPlant = async (zipcode) => {
   // API
-  'https://plant-hardiness-zone.p.rapidapi.com/zipcodes/${zipcodes}';
+  'https://rapidapi.com/fireside-worldwide-fireside-worldwide-default/api/plant-hardiness-zone/${zipcode}';
 };
   
   
@@ -25,11 +25,12 @@ router.get('/plant/:zipcode', async (req, res) => {
 
     const plant = plantData.get({ plain: true });
 // WHEN LOGIN IS DONE, USER GOES TO THE SECOND PAGE.
+
      res.render('plant', {
        ...plantResponse,
       logged_in: req.session.logged_in
     });
-   } catch (err) {
+  } catch (err) {
     res.status(500).json(err);
   }
  });
@@ -53,8 +54,8 @@ router.get('/plant/:zipcode', async (req, res) => {
      const plants = plantData.map((plant) => plant.get({ plain: true }));
 
    // Pass serialized data and session flag into template
-     res.render('homepage', { 
-       projects, 
+     res.render('plant', { 
+       plants, 
        logged_in: req.session.logged_in 
      });
    } catch (err) {
