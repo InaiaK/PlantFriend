@@ -7,5 +7,5 @@ const options = {
 };
 fetch('https://plant-hardiness-zone.p.rapidapi.com/zipcodes/80120', options)
     .then(response => response.json())
-    .then(response => console.log(response)) //HANDLEBARS
+    //.then(response => console.log(response)) //HANDLEBARS to display the plant model. ??????
     .catch(err => console.error(err));
