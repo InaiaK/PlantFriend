@@ -20,20 +20,14 @@ Zone.init(
     temp:{
         type: DataTypes.STRING,
 
-  },
+  }},
+ 
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'plant',
-  },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'Zone',
+    modelName: 'zone',
   }
 );
 
