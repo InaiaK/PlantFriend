@@ -5,7 +5,7 @@ class Plant extends Model {}
 
 Plant.init(
   {
-    id: {
+    plant_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -15,32 +15,19 @@ Plant.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // Plant hardzone description
-    description: {
+
+    hardiness_zone: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
 
-    
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'plant',
   }
 );
 
-module.exports = Project;
+module.exports = Plant;
