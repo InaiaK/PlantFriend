@@ -6,12 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "seed": "node seeds/seed.js"
+    "seed": "node seeds/seed.js",
+    "tailwind:css": "postcss ./Main/public/css/tailwind.css -o ./Main/public/css/plantfriend.css --watch",
+    "dev": "npm run tailwind:css && nodemon ./Main/server.js",
+    "build:css": "postcss Main/public/css/tailwind.css -o Main/public/stylesheets/style.css --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^10.4.7",
     "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^7.0.4",
     "dotenv": "^8.2.0",
@@ -19,11 +23,14 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "tailwindcss": "^3.0.24"
   }
 }
