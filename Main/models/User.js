@@ -33,6 +33,15 @@ User.init(
         len: [8],
       },
     },
+
+    zone_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Zone",
+       key: "zone_id", 
+      }
+  
+    },
   },
   {
     hooks: {

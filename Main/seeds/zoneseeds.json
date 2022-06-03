@@ -1,0 +1,55 @@
+[
+    {
+        "hardiness_zone": 1,
+        "temp": ">-60"
+    },
+    {
+        "hardiness_zone": 2,
+        "temp": "-50 to -40"
+    },
+    {
+        "hardiness_zone": 3,
+        "temp": "-40 to -30"
+    },
+    {
+        "hardiness_zone": 4,
+        "temp": "-30 to -20"
+    },
+    {
+        "hardiness_zone": 5,
+        "temp": "-20 to -10"
+    },
+    {
+        "hardiness_zone": 6,
+        "temp": "-10 to 0"
+    },
+    {
+        "hardiness_zone": 7,
+        "temp": "0 to 10"
+    },
+    {
+        "hardiness_zone": 8,
+        "temp": "10 to 20"
+    },
+    {
+        "hardiness_zone": 9,
+        "temp": "20 to 30"
+    },
+    {
+        "hardiness_zone": 10,
+        "temp": "30 to 40"
+    },
+    {
+        "hardiness_zone": 11,
+        "temp": "40 to 50"
+    },
+    {
+        "hardiness_zone": 12,
+        "temp": "50 to 60"
+    },
+    {
+        "hardiness_zone": 13,
+        "temp": "60 to 70"
+    }
+
+]
