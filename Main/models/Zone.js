@@ -1,23 +1,24 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Plant extends Model {}
+class Zone extends Model {}
 
-Plant.init(
+Zone.init(
   {
-    plant_id: {
+    
+    zone_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-
  
   
+    hardiness_zone: {
+      type: DataTypes.STRING,
+    },
+    temp:{
+        type: DataTypes.STRING,
 
   },
   {
@@ -26,7 +27,14 @@ Plant.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'plant',
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'Zone',
   }
 );
 
-module.exports = Plant;
+module.exports = Zone;

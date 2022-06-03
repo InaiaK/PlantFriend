@@ -5,20 +5,29 @@ class PlantsSaved extends Model {}
 
 PlantsSaved.init(
   {
-    plant_id: {
+    
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+ 
   
-    hardiness_zone: {
-      type: DataTypes.STRING,
-    },
+  plant_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: "plant",
+     key: "plant_id", 
+    }
+
+  },
+  zone_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: "Zone",
+     key: "zone_id", 
+    }
 
   },
   {
@@ -26,7 +35,7 @@ PlantsSaved.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'plant',
+    modelName: 'plantsSaved',
   },
   {
     sequelize,
