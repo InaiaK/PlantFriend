@@ -1,7 +1,7 @@
 
     const router = require('express').Router();
     const userRoutes = require('./userRoutes');
-    const plantRoutes = require('./planttRoutes');
+    const plantRoutes = require('./plantRoutes');
     
     router.use('/users', userRoutes);
     router.use('/plant', plantRoutes);

@@ -14,6 +14,15 @@ PlantsSaved.init(
     },
  
   
+  
+  zone_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: "Zone",
+     key: "zone_id", 
+
+
+  }},
   plant_id: {
     type: DataTypes.INTEGER,
     references: {
@@ -21,15 +30,7 @@ PlantsSaved.init(
      key: "plant_id", 
     }
 
-  },
-  zone_id: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: "Zone",
-     key: "zone_id", 
-    }
-
-  },
+  }},
   {
     sequelize,
     timestamps: false,
@@ -37,13 +38,7 @@ PlantsSaved.init(
     underscored: true,
     modelName: 'plantsSaved',
   },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'project',
-  }
+
 );
 
 module.exports = PlantsSaved;

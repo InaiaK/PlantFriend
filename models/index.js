@@ -1,6 +1,5 @@
 const User = require('./User');
 const Plant = require('./Plant');
-const PlantList = require('./PlantList');
 const PlantsSaved = require("./PlantsSaved");
 const Zone = require("./Zone");
 
@@ -8,7 +7,7 @@ User.belongsTo(Zone, {
   foreignKey: 'zone_id',
    });
 
-Zone.hasmany(User, {
+Zone.hasMany(User, {
   foreignKey: 'zone_id'
 });
 
@@ -17,11 +16,11 @@ Zone.hasmany(User, {
 //   foreignKey: 'user_id'
 // });
 //-----
-Plant.hasmany(Zone, {
+Plant.belongsToMany(Zone, {
   foreignKey:"plant_id",
 through:'PlantsSaved'});
 
-Zone.hasmany(Plant, {
+Zone.belongsToMany(Plant, {
   foreignKey:"zone_id",
 through:'PlantsSaved'});
 // CONFIRM 2 or 3 TABLES WITH TA 
@@ -30,6 +29,6 @@ through:'PlantsSaved'});
 //   foreignKey: 'user_id',
 //   onDelete: 'CASCADE'
 // });
-_
 
-module.exports = { User, Plant, PlantList};
+
+module.exports = { User, Plant, Zone, PlantsSaved};
