@@ -20,4 +20,5 @@
     url(/Main/assets/galleryBottomRight.png) right bottom no-repeat;
   background-size: auto, auto;
   background-color: gray-100;
+  background-attachment: fixed, fixed;
 }
