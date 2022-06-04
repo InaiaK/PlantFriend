@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+//CREATE A USER
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -16,7 +17,9 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.post('/login', async (req, res) => {
+
+// FIND ONE USER + VALID PASSWORD
+router.post('/user', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { username: req.body.username } });
 
@@ -41,6 +44,8 @@ router.post('/login', async (req, res) => {
       req.session.logged_in = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });
+
+      //function // insert zipcode URL ???????
     });
 
   } catch (err) {
