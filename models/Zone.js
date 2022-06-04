@@ -12,15 +12,14 @@ Zone.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    
  
   
-    hardiness_zone: {
-      type: DataTypes.STRING,
+    plant_id: {
+      type: DataTypes.INTERGER,
+      allowNull: false,
     },
-    temp:{
-        type: DataTypes.STRING,
-
-  }},
+   },
  
   {
     sequelize,
