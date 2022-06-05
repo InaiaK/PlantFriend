@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 .footer {
-  background-image: url(/Main/assets/BottomBorder.png);
+  background-image: url(/assets/BottomBorder.png);
   background-size: cover;
 }
 
 .home {
-  background: url(/Main/assets/HomeLeftCorner.png) left top no-repeat,
-    url(/Main/assets/HomeRightCorner.png) right top no-repeat,
-    url(/Main/assets/BottomBorder.png) bottom no-repeat;
+  background: url(/assets/HomeLeftCorner.png) left top no-repeat,
+    url(/assets/HomeRightCorner.png) right top no-repeat,
+    url(/assets/BottomBorder.png) bottom no-repeat;
   background-size: auto, auto, 100%;
   background-color: gray-100;
 }
 
 .gallery {
-  background: url(/Main/assets/galleryTopLeft.png) left top no-repeat,
-    url(/Main/assets/galleryBottomRight.png) right bottom no-repeat;
+  background: url(/assets/galleryTopLeft.png) left top no-repeat,
+    url(/assets/galleryBottomRight.png) right bottom no-repeat;
   background-size: auto, auto;
   background-color: gray-100;
   background-attachment: fixed, fixed;

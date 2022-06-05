@@ -1,9 +1,9 @@
 module.exports = {
-  content: ["Main/**/*.{html,js}"],
+  content: ['**/*.{html,js,hbs}'],
   theme: {
     extend: {
       fontFamily: {
-        poppins: ['"Poppins"', "regular"],
+        poppins: ['"Poppins"', 'regular'],
       },
     },
     plugins: [],

@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "seed": "node seeds/seed.js",
-    "tailwind:css": "postcss ./Main/public/css/tailwind.css -o ./Main/public/css/plantfriend.css --watch",
-    "dev": "npm run tailwind:css && nodemon ./Main/server.js",
-    "build:css": "postcss Main/public/css/tailwind.css -o Main/public/stylesheets/style.css --watch"
+    "tailwind:css": "postcss public/css/tailwind.css -o /public/css/plantfriend.css --watch",
+    "dev": "npm run tailwind:css && nodemon /server.js",
+    "build:css": "postcss public/css/tailwind.css -o public/stylesheets/style.css --watch"
   },
   "keywords": [],
   "author": "",
