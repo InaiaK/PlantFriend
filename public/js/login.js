@@ -7,6 +7,7 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
     // Send a POST request to the API endpoint
+    console.log(`Login User ${email}`);
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
@@ -15,7 +16,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
+      document.location.replace('/results');
     } else {
       alert(response.statusText);
     }
@@ -25,29 +26,31 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#name-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
-
-  if (name && email && password) {
+  const zipcode = document.querySelector('#zipcode-signup').value.trim();
+  if (zipcode && email && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ zipcode, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/results');
     } else {
       alert(response.statusText);
     }
   }
 };
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
-
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+window.addEventListener('load', () => {
+  const loginForm = document.querySelector('#submit-login');
+  const submitForm = document.querySelector('#submit-signup');
+  if (loginForm) {
+    loginForm.addEventListener('click', loginFormHandler);
+  }
+  if (submitForm) {
+    submitForm.addEventListener('click', signupFormHandler);
+  }
+});
