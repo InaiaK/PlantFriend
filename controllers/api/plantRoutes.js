@@ -1,7 +1,6 @@
 const router = require('express').Router();
-const { Plant} = require('../../models');
+const { Plant } = require('../../models');
 const withAuth = require('../../utils/auth');
-
 
 // SELECT/CREATE A PLANT TO YOUR LIST.
 router.post('/', withAuth, async (req, res) => {
@@ -17,8 +16,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-
-// DELETE PLANT SAVED 
+// DELETE PLANT SAVED
 router.delete('/plantssaved/:id', withAuth, async (req, res) => {
   try {
     const plantData = await Plant.destroy({

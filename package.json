@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "start:debug": "DEBUG=express:* node server.js",
     "seed": "node seeds/seed.js",
     "tailwind:css": "postcss public/css/tailwind.css -o /public/css/plantfriend.css --watch",
     "dev": "npm run tailwind:css && nodemon /server.js",
