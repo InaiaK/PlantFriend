@@ -6,10 +6,9 @@ class Zone extends Model {}
 Zone.init(
   {
     zone_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
     },
 
     plant_id: {
