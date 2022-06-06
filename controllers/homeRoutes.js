@@ -1,12 +1,14 @@
 const router = require('express').Router();
 const { render } = require('express/lib/response');
-const { Project, User } = require('../models');
+const { Plant, User, PlantsSaved} = require('../models');
 const withAuth = require('../utils/auth');
 const path = require('path');
+const { request } = require('http');
+
 
 router.get('/', async (req, res) => {
   try {
-    res.sendFile(path.join(__dirname, '../views/login.html'));
+res.render("register")
   } catch (err) {
     res.status(500).json(err);
   }
@@ -14,10 +16,16 @@ router.get('/', async (req, res) => {
 
 router.get('/results', async (req, res) => {
   try {
+    console.log(req.session.user_id)
+    const userData = await User.findByPk(
+        req.session.user_id
+
+    )
+    console.log(userData)
     res.render('results', {
-      layout: 'index',
+
       // DATA NEEDS TO GO HERE
-      resultsArray: [{ plant_name: 'Fern' }, { plant_name: 'Zzz Plant' }],
+      userData
     });
   } catch (err) {
     res.status(500).json(err);

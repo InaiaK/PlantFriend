@@ -5,7 +5,7 @@ const options = {
         'X-RapidAPI-Key': '73b62e3ab2msh529dbce38894e45p1cca4ejsn58c26ae03383'
     }
 };
-fetch('https://plant-hardiness-zone.p.rapidapi.com/zipcodes/80120', options)
+fetch(`https://plant-hardiness-zone.p.rapidapi.com/zipcodes/${zipcodes}`, options)
     .then(response => response.json())
     .then(response => console.log("./results.handlebars")) // where to display results. 
     .catch(err => console.error(err));
