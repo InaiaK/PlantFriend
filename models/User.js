@@ -16,15 +16,15 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
-    // zipcode: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
+     zipcode: {
+      type: DataTypes.STRING,
+      allowNull: false,
+     },
     
     password: {
       type: DataTypes.STRING,
