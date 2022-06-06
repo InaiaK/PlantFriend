@@ -2,6 +2,9 @@ const router = require('express').Router();
 const { Plant } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// GET ALL PLANTS
+router.get('/',async(req,res ))
+
 // SELECT/CREATE A PLANT TO YOUR LIST.
 router.post('/', withAuth, async (req, res) => {
   try {

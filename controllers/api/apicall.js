@@ -7,5 +7,26 @@ const options = {
 };
 fetch('https://plant-hardiness-zone.p.rapidapi.com/zipcodes/80120', options)
     .then(response => response.json())
-    //.then(response => console.log(response)) //HANDLEBARS to display the plant model. ??????
+    .then(response => console.log("./results.handlebars")) // where to display results. 
     .catch(err => console.error(err));
+
+
+
+
+//     // // api url
+// const api_url =
+// "https://plant-hardiness-zone.p.rapidapi.com/zipcodes/";
+
+// // Defining async function
+// async function getapi(https://plant-hardiness-zone.p.rapidapi.com/zipcodes/) {
+// // Storing response
+// const response = await fetch(https://plant-hardiness-zone.p.rapidapi.com/zipcodes/);
+
+// // Storing data in form of JSON
+// var data = await response.json();
+// console.log(data);
+// if (response) {
+//     hideloader();
+// }
+// show(data);
+// }
