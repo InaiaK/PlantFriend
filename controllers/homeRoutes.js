@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { render } = require('express/lib/response');
+const { render, json } = require('express/lib/response');
 const { Plant, User, PlantsSaved} = require('../models');
 const withAuth = require('../utils/auth');
 const path = require('path');
@@ -16,21 +16,42 @@ res.render("register")
 
 router.get('/results', async (req, res) => {
   try {
-    console.log(req.session.user_id)
+    //console.log()
     const userData = await User.findByPk(
         req.session.user_id
 
     )
-    console.log(userData)
+    console.log("++++++++++++++")
+    console.log(req.user)
+    console.log("===============")
+
     res.render('results', {
+      message:"Hello",user:req.user
 
       // DATA NEEDS TO GO HERE
-      userData
+    //  userData
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+// let zipcode = 80123 // req.session.zipcode || 80123
+//     const options = {
+//       method: 'GET',
+//       url: `https://usda-plant-hardiness-zones.p.rapidapi.com/zone/${zipcode}`,
+//       headers: {
+//         'X-RapidAPI-Host': 'usda-plant-hardiness-zones.p.rapidapi.com',
+//         'X-RapidAPI-Key': 'bf6c21b426msh0cd3146563ed98bp1607b3jsn6fa55e43e23c'
+//       }
+//     };
+//     axios.request(options).then(function (response) {
+//       console.log(response.data);
+//     }).catch(function (error) {
+//       console.error(error);
+//     });
+// });
+
+
 
 router.get('/favorites', async (req, res) => {
   try {
