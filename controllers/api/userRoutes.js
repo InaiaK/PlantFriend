@@ -10,6 +10,7 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+      req.session.zipcode = userData.zipcode
 
       res.status(200).json(userData);
     });
@@ -24,7 +25,7 @@ router.post('/login', async (req, res) => {
     console.log('Logging user in');
     console.table(req.body);
     const userData = await User.findOne({
-      where: { username: req.body.email },
+      where: { email: req.body.email },
     });
     console.log('Got here');
     console.table(userData);
@@ -34,7 +35,7 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect username or password, please try again' });
       return;
     } else {
-      console.log(`Found User ${req.body.username}`);
+      console.log(`Found User ${req.body.email}`);
     }
 
     const validPassword = await userData.checkPassword(req.body.password);

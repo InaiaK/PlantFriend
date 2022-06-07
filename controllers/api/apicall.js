@@ -11,7 +11,18 @@ fetch(`https://plant-hardiness-zone.p.rapidapi.com/zipcodes/${zipcodes}`, option
     .catch(err => console.error(err));
 
 
-
+    // const options = {
+    //     method: 'GET',
+    //     headers: {
+    //         'X-RapidAPI-Host': 'plant-hardiness-zone.p.rapidapi.com',
+    //         'X-RapidAPI-Key': '73b62e3ab2msh529dbce38894e45p1cca4ejsn58c26ae03383'
+    //     }
+    // };
+    
+    // fetch('https://plant-hardiness-zone.p.rapidapi.com/zipcodes/80226', options)
+    //     .then(response => response.json())
+    //     .then(response => console.log(response))
+    //     .catch(err => console.error(err));
 
 //     // // api url
 // const api_url =
