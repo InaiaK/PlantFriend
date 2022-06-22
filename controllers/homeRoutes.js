@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { render, json } = require('express/lib/response');
-const { Plant, User, PlantsSaved} = require('../models');
+const { Plant, User, PlantsSaved, Zone} = require('../models');
 const withAuth = require('../utils/auth');
 const path = require('path');
 const { request } = require('http');
@@ -8,7 +8,7 @@ const { request } = require('http');
 
 router.get('/', async (req, res) => {
   try {
-res.render("register")
+    res.render("register")
   } catch (err) {
     res.status(500).json(err);
   }
@@ -18,7 +18,7 @@ router.get('/results', async (req, res) => {
   try {
     //console.log()
     const userData = await User.findByPk(
-        req.session.user_id
+      req.session.user_id
 
     )
     // fix here to console the data
@@ -27,7 +27,7 @@ router.get('/results', async (req, res) => {
     console.log("===============")
 
     res.render('results', {
-      message:"Hello",user:req.user
+      message: "Hello", user: req.user
 
     });
   } catch (err) {

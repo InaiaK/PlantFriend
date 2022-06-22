@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.7",
+    "axios": "^0.27.2",
     "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^7.0.4",
     "dotenv": "^8.2.0",
