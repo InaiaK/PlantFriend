@@ -21,6 +21,7 @@ router.get('/results', async (req, res) => {
         req.session.user_id
 
     )
+    // fix here to console the data
     console.log("++++++++++++++")
     console.log(req.user)
     console.log("===============")
@@ -28,28 +29,12 @@ router.get('/results', async (req, res) => {
     res.render('results', {
       message:"Hello",user:req.user
 
-      // DATA NEEDS TO GO HERE
-    //  userData
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-// let zipcode = 80123 // req.session.zipcode || 80123
-//     const options = {
-//       method: 'GET',
-//       url: `https://usda-plant-hardiness-zones.p.rapidapi.com/zone/${zipcode}`,
-//       headers: {
-//         'X-RapidAPI-Host': 'usda-plant-hardiness-zones.p.rapidapi.com',
-//         'X-RapidAPI-Key': 'bf6c21b426msh0cd3146563ed98bp1607b3jsn6fa55e43e23c'
-//       }
-//     };
-//     axios.request(options).then(function (response) {
-//       console.log(response.data);
-//     }).catch(function (error) {
-//       console.error(error);
-//     });
-// });
+
 
 
 
