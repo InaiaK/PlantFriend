@@ -42,12 +42,14 @@ router.get('/results/:hz', async (req, res) => {
     // const userData = await User.findByPk(
     //   req.session.user_id
 
-      Zone.findAll({
+      const response = await Zone.findAll({
         where: {
           zone_id: (req, param.hz)
         }
       });
 
+    const allZones = response.json()
+console.log(allZones)
     
     console.log("++++++++++++++")
     console.log(req.user)
