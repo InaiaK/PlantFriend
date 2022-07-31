@@ -25,6 +25,7 @@
 // const zipcode = 80120
 // fetch(`https://plant-hardiness-zone.p.rapidapi.com/zipcodes/${zipcode}`, options)
 
+
 //     .then(response => response.json())
 //     .then(response => {
 //         console.log(response.hardiness_zone)
@@ -37,4 +38,4 @@
 //     .catch(err => console.error(err))
     
 
-   
+

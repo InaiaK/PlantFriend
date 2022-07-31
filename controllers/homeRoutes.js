@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const { render, json } = require('express/lib/response');
+
 const fetch = require('node-fetch')
 const { Plant, User, PlantsSaved, Zone} = require('../models');
 const { QueryTypes } = require('sequelize');
+
 const withAuth = require('../utils/auth');
 const path = require('path');
 const { sequelize } = require('../models/User');
@@ -11,7 +13,7 @@ const { request } = require('http');
 
 router.get('/', async (req, res) => {
   try {
-    res.render("register")
+res.render("register")
   } catch (err) {
     res.status(500).json(err);
   }
@@ -39,19 +41,22 @@ async function getHardinessZone(zip) {
 router.get('/results', async (req, res) => {
   try {
     const userData = await User.findByPk(
-      req.session.user_id
+        req.session.user_id
 
     )
+
     console.log(JSON.stringify(userData))
     const plants = await getHardinessZone(userData.zipcode);
     console.log(`hardinessResults ${JSON.stringify(plants)}`)
     res.render('results', {
       plants
+
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 router.get('/results/:hz', async (req, res) => {
   try {
@@ -84,6 +89,7 @@ console.log(allZones)
     res.status(500).json(err);
   }
 });
+
 
 router.get('/favorites', async (req, res) => {
   try {

@@ -1,21 +1,15 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Zone extends Model { }
+class Zone extends Model {}
 
 Zone.init(
   {
-
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
     zone_id: {
       type: DataTypes.STRING,
       allowNull: false,
-         },
+      primaryKey: true,
+    },
 
     plant_id: {
       type: DataTypes.INTEGER,

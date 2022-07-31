@@ -4,7 +4,7 @@ const { User, Plant, Zone, PlantsSaved } = require('../models');
 const userData = require('./userData.json');
 
 const plantData = require('./plantseeds.json');
-const zoneData = require('./zoneseeds.json');
+// const zoneData = require('./zoneseeds.json');
 const plantSavedData = require('./plantsavedseed.json');
 
 const seedDatabase = async () => {
