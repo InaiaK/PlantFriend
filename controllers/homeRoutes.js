@@ -1,8 +1,11 @@
 const router = require('express').Router();
 const { render, json } = require('express/lib/response');
+const fetch = require('node-fetch')
 const { Plant, User, PlantsSaved, Zone} = require('../models');
+const { QueryTypes } = require('sequelize');
 const withAuth = require('../utils/auth');
 const path = require('path');
+const { sequelize } = require('../models/User');
 const { request } = require('http');
 
 
@@ -14,22 +17,36 @@ router.get('/', async (req, res) => {
   }
 });
 
+async function getHardinessZone(zip) {
+  const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Host': 'plant-hardiness-zone.p.rapidapi.com',
+        'X-RapidAPI-Key': '73b62e3ab2msh529dbce38894e45p1cca4ejsn58c26ae03383'
+    }}
+    
+    const response = await fetch(`https://plant-hardiness-zone.p.rapidapi.com/zipcodes/${zip}`, options)
+    const apiZone = await response.json()
+    const query = `select p.name from plant p join zone z on z.plant_id=p.plant_id WHERE z.zone_id='${apiZone.hardiness_zone}';`;
+    const queryResult = await sequelize.query(query, {
+        type: QueryTypes.SELECT,
+        plain: false,
+        raw: true,
+      });
+    return queryResult
+}
+
 router.get('/results', async (req, res) => {
   try {
-    //console.log()
     const userData = await User.findByPk(
       req.session.user_id
 
     )
-    console.log("++++++++++++++")
-    console.log(req.user)
-    console.log("===============")
-
+    console.log(JSON.stringify(userData))
+    const plants = await getHardinessZone(userData.zipcode);
+    console.log(`hardinessResults ${JSON.stringify(plants)}`)
     res.render('results', {
-      message: "Hello", user: req.user
-
-      // DATA NEEDS TO GO HERE
-      //  userData
+      plants
     });
   } catch (err) {
     res.status(500).json(err);
@@ -67,23 +84,6 @@ console.log(allZones)
     res.status(500).json(err);
   }
 });
-// let zipcode = 80123 // req.session.zipcode || 80123
-//     const options = {
-//       method: 'GET',
-//       url: `https://usda-plant-hardiness-zones.p.rapidapi.com/zone/${zipcode}`,
-//       headers: {
-//         'X-RapidAPI-Host': 'usda-plant-hardiness-zones.p.rapidapi.com',
-//         'X-RapidAPI-Key': 'bf6c21b426msh0cd3146563ed98bp1607b3jsn6fa55e43e23c'
-//       }
-//     };
-//     axios.request(options).then(function (response) {
-//       console.log(response.data);
-//     }).catch(function (error) {
-//       console.error(error);
-//     });
-// });
-
-
 
 router.get('/favorites', async (req, res) => {
   try {
