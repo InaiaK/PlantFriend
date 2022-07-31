@@ -39,7 +39,7 @@
         <div
           class='grid grid-cols-1 gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
         ><div class="bg-primary">{{user.user_id}}</div>
-          {{#each resultsArray}}
+          {{#each plants as |plant| }}
             <div class='flex justify-center'>
               <div class='rounded-lg shadow-lg bg-white max-w-sm'>
                 <a href='#!'>
@@ -51,7 +51,7 @@
                 </a>
                 <div class='p-6'>
                   <h5 class='text-gray-900 text-xl font-medium mb-2'>
-                    {{plant_name}}
+                    {{plant.name}}
                   </h5>
                   <button
                     type='button'
@@ -68,5 +68,7 @@
       </div>
     </div>
   </container>
-</html>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
 <script src="js/results.js"></script>

@@ -1,5 +1,8 @@
 const router = require('express').Router();
+const { response } = require('express');
+const { QueryTypes } = require('sequelize');
 const { Plant } = require('../../models');
+const { sequelize } = require('../../models/User');
 const withAuth = require('../../utils/auth');
 
 
@@ -37,6 +40,18 @@ router.delete('/plantssaved/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get('/zone/:zoneid', async (req, res) => {
+  const query = `select p.name from plant p join zone z on z.plant_id=p.plant_id WHERE z.zone_id='${req.params.zoneid}';`
+  const results = await sequelize.query(query, {
+    logging: console.log,
+    type: QueryTypes.SELECT,
+    plain: false,
+    raw: true,
+  });
+  console.log(results)
+  res.status(200).json(results)
 });
 
 // // GET all plants
